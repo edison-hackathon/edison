@@ -35,15 +35,66 @@ say({'SUBSCRIBE', ok, emsg})
 
 fiber.create(function()
   while true do
+
+    --[[
+    ok, emsg = conn:publish("devices/Edison/get", "1")
+    --]]
+
+    
     ok, emsg = conn:publish("devices/Edison/aaaa::212:4b00:939:3b90/sht21/temperature/get", "1")
     say({'publish -> get temperature(1)', ok, emsg})
 
     ok, emsg = conn:publish("devices/Edison/aaaa::212:4b00:939:3b90/sht21/humidity/get", "1")
     say({'publish -> get humidity(1)', ok, emsg})
 
-    ok, emsg = conn:publish("devices/Edison/aaaa::212:4b00:939:3356/rs485/tx", "1")
+    ok, emsg = conn:publish("devices/Edison/aaaa::212:4b00:939:3b90/rs485/tx", "1")
     say({'publish -> get humidity(1)', ok, emsg})
+
+    fiber.sleep(2) 
+
+    ok, emsg = conn:publish("devices/Edison/aaaa::212:4b00:939:3356/sht21/temperature/get", "1")
+    say({'publish -> get temperature(1)', ok, emsg})                            
+                                                                                
+    ok, emsg = conn:publish("devices/Edison/aaaa::212:4b00:939:3356/sht21/humidity/get", "1")
+    say({'publish -> get humidity(1)', ok, emsg})                               
+                                                                                
+    ok, emsg = conn:publish("devices/Edison/aaaa::212:4b00:939:3356/rs485/tx", "1")
+    say({'publish -> get humidity(1)', ok, emsg}) 
+
+    fiber.sleep(2) 
+
+    ok, emsg = conn:publish("devices/Edison/aaaa::212:4b00:939:360a/sht21/temperature/get", "1")
+    say({'publish -> get temperature(1)', ok, emsg})                            
+                                                                                
+    ok, emsg = conn:publish("devices/Edison/aaaa::212:4b00:939:360a/sht21/humidity/get", "1")
+    say({'publish -> get humidity(1)', ok, emsg})                               
+                                                                                
+    ok, emsg = conn:publish("devices/Edison/aaaa::212:4b00:939:360a/rs485/tx", "1")
+    say({'publish -> get humidity(1)', ok, emsg}) 
+
+    fiber.sleep(2) 
+
+    ok, emsg = conn:publish("devices/Edison/aaaa::212:4b00:939:360a/sht21/temperature/get", "1")
+    say({'publish -> get temperature(1)', ok, emsg})                            
+                                                                                
+    ok, emsg = conn:publish("devices/Edison/aaaa::212:4b00:939:360a/sht21/humidity", "1")
+    say({'publish -> get humidity(1)', ok, emsg})                               
+                                                                                
+    ok, emsg = conn:publish("devices/Edison/aaaa::212:4b00:939:360a/rs485/tx", "1")
+    say({'publish -> get humidity(1)', ok, emsg}) 
+
+    fiber.sleep(2) 
+
+    ok, emsg = conn:publish("devices/Edison/aaaa::212:4b00:939:336b/sht21/temperature/get", "1")
+    say({'publish -> get temperature(1)', ok, emsg})                            
+                                                                                
+    ok, emsg = conn:publish("devices/Edison/aaaa::212:4b00:939:336b/sht21/humidity/get", "1")
+    say({'publish -> get humidity(1)', ok, emsg})                               
+                                                                                
+    ok, emsg = conn:publish("devices/Edison/aaaa::212:4b00:939:336b/rs485/tx", "1")
+    say({'publish -> get humidity(1)', ok, emsg}) 
 
     fiber.sleep(2)
   end
 end)
+
